@@ -16,6 +16,7 @@ public class Anagrams {
         // if length of strings is not same
         if (first.length != second.length)
             return false;
+
         int[] counts = new int[26];
         for (int i = 0; i < first.length; i++) {
             counts[first[i] - 97]++;

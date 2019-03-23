@@ -1,6 +1,8 @@
 package com.nimina.java_track;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by kowama
@@ -11,24 +13,22 @@ import java.util.Scanner;
  */
 public class TagContentExtractor {
     public static void main(String[] args) {
-
-        Scanner in = new Scanner(System.in);
-        int testCases = Integer.parseInt(in.nextLine());
-        while (testCases > 0) {
-            String line = in.nextLine();
-            System.out.println(extractTagFrom(line));
-
-            testCases--;
+        Scanner scan = new Scanner(System.in);
+        int testCases = Integer.parseInt(scan.nextLine());
+        while (testCases-- > 0) {
+            String line = scan.nextLine();
+            boolean matchFound = false;
+            Pattern r = Pattern.compile("<(.+)>([^<]+)</\\1>");
+            Matcher m = r.matcher(line);
+            while (m.find()) {
+                System.out.println(m.group(2));
+                matchFound = true;
+            }
+            if (!matchFound) {
+                System.out.println("None");
+            }
         }
-    }
+        scan.close();
 
-    private static boolean validateContentTag() {
-        return false;
-
-    }
-
-    private static String extractTagFrom(String line) {
-        String[] contentLines = line.split("<[^>]*>");
-        return line.split("<[^>]*>")[0];
     }
 }
