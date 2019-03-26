@@ -1,0 +1,25 @@
+package com.nimina;
+
+import java.util.Scanner;
+
+/**
+ * Created by kowama
+ * Package: com.nimina.java_track
+ * User: kowama
+ * Date: 03/23/2019
+ * Time: 19:09
+ */
+public class Formatter {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("================================");
+        for (int i = 0; i < 3; i++) {
+            String s1 = sc.next();
+            int x = sc.nextInt();
+            System.out.printf("%-15s%03d\n", s1, x);
+        }
+        System.out.println("================================");
+
+    }
+}
