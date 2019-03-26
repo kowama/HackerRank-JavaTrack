@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Date: 03/23/2019
  * Time: 17:21
  */
-public class StrCompare {
+public class SmallestAndLargest {
     public static String getSmallestAndLargest(String s, int k) {
 
         //max number of substr of length k
